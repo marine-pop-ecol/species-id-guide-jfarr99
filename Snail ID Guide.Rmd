@@ -152,14 +152,21 @@ knitr::kable(snail_table_clean, caption = "Shell morphometric measurements of fo
 
 snail_plot = ggplot(data = snail_table) +
   geom_point(aes(x = length_mm, y = height_mm, fill = Species, shape = Species), 
-             size = 3, 
-             color = "black") +
+             size = 3, color = "black") +
+  scale_y_continuous(limits = c(0,20))+
+  scale_x_continuous(limits =c(0,20))+
   scale_shape_manual(values = c(21,22,23,24))+
   scale_fill_manual(values = c("blue", "red", "green", "yellow"))+
   theme_bw() +
   labs(x = "Shell Length (mm)", y = "Shell Height (mm)")
 
 snail_plot
+```
+
+\newpage
+
+```{r Table, fig.align = 'left', out.width = "100%", out.height = "100%", fig.cap = "Table 2. Summary of characteristics for four intertidal snails.", fig.cap.align = 'left', echo=FALSE}
+knitr::include_graphics(here::here("images", "Summary Table.jpg"))
 ```
 
 \newpage
